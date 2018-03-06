@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c384c58067fb47c8818e5b4eda3d785c" Name="Diagram1">
+        <EntityTypeShape EntityType="BillingModel.Currency" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="BillingModel.Deposit" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="BillingModel.FundingType" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="BillingModel.FundingTypeCurrency" Width="1.5" PointX="6" PointY="3.875" />
+        <EntityTypeShape EntityType="BillingModel.PaymentStatus" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="BillingModel.FK_Deposit_Currency" />
+        <AssociationConnector Association="BillingModel.FK_FundingTypeCurrency_Currency" />
+        <AssociationConnector Association="BillingModel.FK_Deposit_FundingType" />
+        <AssociationConnector Association="BillingModel.FK_Deposit_PaymentStatus" />
+        <AssociationConnector Association="BillingModel.FK_FundingTypeCurrency_FundingType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
