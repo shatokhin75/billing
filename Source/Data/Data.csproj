@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Billing.edmx</DependentUpon>
     </Compile>
+    <Compile Include="BillingContext.cs" />
     <Compile Include="Contracts\Data\CurrencyDTO.cs" />
     <Compile Include="Contracts\Data\DepositDTO.cs" />
     <Compile Include="Contracts\Data\FundingTypeCurrencyDTO.cs" />
@@ -87,7 +88,8 @@
     <Compile Include="FundingTypeCurrency.cs">
       <DependentUpon>Billing.tt</DependentUpon>
     </Compile>
-    <Compile Include="Mappers\ToDto.cs" />
+    <Compile Include="IBillingContext.cs" />
+    <Compile Include="Mappers\EntitiesMapper.cs" />
     <Compile Include="PaymentStatus.cs">
       <DependentUpon>Billing.tt</DependentUpon>
     </Compile>

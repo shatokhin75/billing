@@ -2,3 +2,10 @@ AllProjects.v12.suo
 packages/
 Source/Data/obj/
 Source/Data/bin/
+Source/Business/bin/
+Source/Business/obj/Debug/
+Source/Service.Web/bin/
+Source/Service.Web/obj/
+Source/Service/obj/
+Source/Service/bin/
+Source/Service.Web/Service.Web.csproj.user

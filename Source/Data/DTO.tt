@@ -80,11 +80,120 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
 
 // fileManager.Process();
 
-fileManager.StartNewFile(mappersFolder + "ToDto.cs");
+fileManager.StartNewFile(mappersFolder + "EntitiesMapper.cs");
 BeginNamespace(code, ".Mappers");
 #>
-public static class ToDto
+using System.Linq;
+using Data.Contracts.Data;
+
+public static class EntitiesMapper
 {
+<#
+foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
+{
+#>
+    public static <#=code.Escape(entity)+"DTO"#> ToDto(this <#=code.Escape(entity)#> <#=code.Escape(entity).ToLower()#>)
+    {
+	    if (<#=code.Escape(entity).ToLower()#> == null)
+        {
+            return null;
+        }
+
+        var <#=code.Escape(entity).ToLower() + "DTO"#> = new <#=code.Escape(entity) + "DTO"#>
+        {
+<#
+		var simpleProperties = typeMapper.GetSimpleProperties(entity);
+        if (simpleProperties.Any())
+        {
+            foreach (var edmProperty in simpleProperties)
+            {
+#>
+            <#=code.Escape(edmProperty)#> = <#=code.Escape(entity).ToLower()#>.<#=code.Escape(edmProperty)#>,
+<#
+            }
+        }
+
+		var navigationProperties = typeMapper.GetNavigationProperties(entity);
+        if (navigationProperties.Any())
+        {
+
+           foreach (var navigationProperty in navigationProperties)
+           {
+		       if(navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many)
+			   {
+/*
+#>
+            <#=code.Escape(navigationProperty)#> = <#=code.Escape(entity).ToLower()#>.<#=code.Escape(navigationProperty)#>.ToList().Select(a => a.ToDto()).ToList(),
+<#
+*/
+				}
+				else
+				{
+#>
+            <#=code.Escape(navigationProperty)#> = <#=code.Escape(entity).ToLower()#>.<#=code.Escape(navigationProperty)#>.ToDto(),
+<#
+				}
+           }
+        }
+#>
+        };
+
+        return <#=code.Escape(entity).ToLower() + "DTO"#>;
+    }
+
+<#
+#>
+    public static <#=code.Escape(entity)#> ToEntity(this <#=code.Escape(entity) + "DTO"#> <#=code.Escape(entity).ToLower() + "DTO"#>)
+    {
+	    if (<#=code.Escape(entity).ToLower() + "DTO"#> == null)
+        {
+            return null;
+        }
+
+        var <#=code.Escape(entity).ToLower()#> = new <#=code.Escape(entity)#>
+        {
+<#
+        if (simpleProperties.Any())
+        {
+            foreach (var edmProperty in simpleProperties)
+            {
+#>
+            <#=code.Escape(edmProperty)#> = <#=code.Escape(entity).ToLower() + "DTO"#>.<#=code.Escape(edmProperty)#>,
+<#
+            }
+        }
+
+        if (navigationProperties.Any())
+        {
+
+           foreach (var navigationProperty in navigationProperties)
+           {
+		       if(navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many)
+			   {
+/*
+#>
+            <#=code.Escape(navigationProperty)#> = <#=code.Escape(entity).ToLower() + "DTO"#>.<#=code.Escape(navigationProperty)#>.Select(a => a.ToEntity()).ToList(),
+<#
+*/
+				}
+				else
+				{
+#>
+            <#=code.Escape(navigationProperty)#> = <#=code.Escape(entity).ToLower() + "DTO"#>.<#=code.Escape(navigationProperty)#>.ToEntity(),
+<#
+				}
+           }
+        }
+#>
+        };
+
+        return <#=code.Escape(entity).ToLower()#>;
+    }
+
+<#
+}
+#>
+}
 <#
 EndNamespace(code);
 fileManager.Process();
