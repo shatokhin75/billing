@@ -9,3 +9,8 @@ Source/Service.Web/obj/
 Source/Service/obj/
 Source/Service/bin/
 Source/Service.Web/Service.Web.csproj.user
+AllProjects.sln.DotSettings.user
+Source/Service/Service.csproj.user
+Source/Service/Services/bin/
+Tests/Service.Test/bin/
+Tests/Service.Test/obj/

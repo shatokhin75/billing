@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Service</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "F:Service.Adapters.BillingServiceAdapter.billingBusinessService" -->
+        <member name="F:Service.Controllers.BillingApiController.adapter">
+            <summary>
+            The adapter.
+            </summary>
+        </member>
+        <member name="F:Service.Services.BillingService.adapter">
+            <summary>
+            The adapter.
+            </summary>
+        </member>
+    </members>
+</doc>

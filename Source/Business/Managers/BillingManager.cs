@@ -16,7 +16,7 @@
 
         public List<FundingTypeDTO> GetAllSupportedFundingTypes()
         {
-            var result = this.Context.FundingType.ToList().Select(a => a.ToDto()).ToList();
+            var result = this.Context.FundingType.AsNoTracking().ToList().Select(a => a.ToDto()).ToList();
             return result;
         }
     }
