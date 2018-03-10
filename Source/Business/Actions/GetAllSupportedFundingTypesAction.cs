@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="GetAllSupportedFundingTypesAction.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Defines the GetAllSupportedFundingTypesAction type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Business.Actions
 {
+    using System.Collections.Generic;
+
     using Business.Managers;
 
     using Data.Contracts.Data;

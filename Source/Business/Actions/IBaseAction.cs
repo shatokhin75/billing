@@ -2,7 +2,7 @@
 {
     using Data;
 
-    public interface IBaseAction
+    internal interface IBaseAction
     {
         /// <summary>
         /// Gets or sets the database context.

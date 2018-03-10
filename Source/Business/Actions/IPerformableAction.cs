@@ -9,7 +9,7 @@ namespace Business.Actions
     /// <summary>
     /// Defines methods for performable actions which do not return a value.  
     /// </summary>
-    public interface IPerformableAction : IBaseAction
+    internal interface IPerformableAction : IBaseAction
     {
         #region Public Methods
 
@@ -27,7 +27,7 @@ namespace Business.Actions
     /// <typeparam name="TResult">
     /// The type of return value for Perform().
     /// </typeparam>
-    public interface IPerformableAction<out TResult> : IBaseAction
+    internal interface IPerformableAction<out TResult> : IBaseAction
     {
         #region Public Methods
 

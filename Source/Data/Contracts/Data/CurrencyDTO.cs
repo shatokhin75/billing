@@ -6,7 +6,7 @@ namespace Data.Contracts.Data
     using System;
     using System.Collections.Generic;
     
-    public class CurrencyDTO
+    public partial class CurrencyDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

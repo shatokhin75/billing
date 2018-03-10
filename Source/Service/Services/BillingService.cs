@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.ServiceModel;
 
+    using Business;
+
     using Service.Adapters;
     using Service.Contracts;
     using Service.Contracts.Data;
@@ -14,11 +16,21 @@
         /// <summary>
         /// The adapter.
         /// </summary>
-        private readonly BillingServiceAdapter adapter = new BillingServiceAdapter();
+        private readonly BillingServiceAdapter adapter;
+
+        public BillingService()
+        {
+            this.adapter = new BillingServiceAdapter(new BillingBusinessService());
+        }
 
         public List<FundingTypeData> GetAllSupportedFundingTypes()
         {
             return this.adapter.GetAllSupportedFundingTypes();
+        }
+
+        public FundingTypeSupportedCurrenciesData GetFundingTypeSupportedCurrencies(int id)
+        {
+            return this.adapter.GetFundingTypeSupportedCurrencies(id);
         }
     }
 }

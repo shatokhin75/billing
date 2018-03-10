@@ -6,7 +6,7 @@ namespace Data.Contracts.Data
     using System;
     using System.Collections.Generic;
     
-    public class DepositDTO
+    public partial class DepositDTO
     {
         public int Id { get; set; }
         public int PaymentStatusID { get; set; }

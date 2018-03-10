@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\GetFundingTypeSupportedCurrenciesAction.cs" />
     <Compile Include="Actions\PerformableAction.cs" />
     <Compile Include="Actions\GetAllSupportedFundingTypesAction.cs" />
     <Compile Include="Actions\IBaseAction.cs" />

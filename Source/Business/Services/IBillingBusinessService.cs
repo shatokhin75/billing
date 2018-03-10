@@ -8,5 +8,6 @@
     public interface IBillingBusinessService
     {
         List<FundingTypeDTO> GetAllSupportedFundingTypes();
+        FundingTypeDTO GetFundingTypeSupportedCurrencies(int id);
     }
 }

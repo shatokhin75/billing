@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Service.Adapters
+﻿namespace Service.Adapters
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     using Business;
 
     using Service.Contracts.Data;
@@ -18,14 +15,19 @@ namespace Service.Adapters
         /// </summary>
         private readonly IBillingBusinessService billingBusinessService;
 
-        public BillingServiceAdapter()
+        public BillingServiceAdapter(IBillingBusinessService billingBusinessService)
         {
-            this.billingBusinessService = new BillingBusinessService();
+            this.billingBusinessService = billingBusinessService;
         }
 
         public List<FundingTypeData> GetAllSupportedFundingTypes()
         {
-            return this.billingBusinessService.GetAllSupportedFundingTypes().Select(a => a.ToDto()).ToList();
+            return this.billingBusinessService.GetAllSupportedFundingTypes().Select(a => a.ToFundingTypeDataDto()).ToList();
+        }
+
+        public FundingTypeSupportedCurrenciesData GetFundingTypeSupportedCurrencies(int id)
+        {
+            return this.billingBusinessService.GetFundingTypeSupportedCurrencies(id).ToFundingTypeSupportedCurrenciesDataDto();
         }
     }
 }

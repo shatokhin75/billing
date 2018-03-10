@@ -10,5 +10,8 @@
     {
         [OperationContract]
         List<FundingTypeData> GetAllSupportedFundingTypes();
+
+        [OperationContract]
+        FundingTypeSupportedCurrenciesData GetFundingTypeSupportedCurrencies(int id);
     }
 }

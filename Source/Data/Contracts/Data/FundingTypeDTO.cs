@@ -6,7 +6,7 @@ namespace Data.Contracts.Data
     using System;
     using System.Collections.Generic;
     
-    public class FundingTypeDTO
+    public partial class FundingTypeDTO
     {
         public int Id { get; set; }
         public string FundingTypeName { get; set; }

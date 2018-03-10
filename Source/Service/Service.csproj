@@ -82,6 +82,7 @@
     <Compile Include="Adapters\BillingServiceAdapter.cs" />
     <Compile Include="Configs\WebApiConfig.cs" />
     <Compile Include="Contracts\Data\FundingTypeData.cs" />
+    <Compile Include="Contracts\Data\FundingTypeSupportedCurrenciesData.cs" />
     <Compile Include="Contracts\Service\IBillingService.cs" />
     <Compile Include="Controllers\BillingApiController.cs" />
     <Compile Include="Mappers\Mapper.cs" />
