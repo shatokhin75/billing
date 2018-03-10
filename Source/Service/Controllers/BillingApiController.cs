@@ -40,5 +40,14 @@
             var result = this.adapter.GetFundingTypeSupportedCurrencies(id);
             return Json(result);
         }
+
+        [HttpPut]
+        [Route("SetPaymentStatusOnQuote")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult SetFundingTypeDeposits([FromBody]SetFundingTypeDepositsData data)
+        {
+            this.adapter.SetFundingTypeDeposits(data.FundingTypeId, data.DepositId);
+            return this.Ok();
+        }
     }
 }

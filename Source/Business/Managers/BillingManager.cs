@@ -1,6 +1,8 @@
 ﻿namespace Business.Managers
 {
+    using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
     using System.Security.Cryptography;
 
@@ -36,6 +38,30 @@
                                      QuoteActive = f.QuoteActive
                                  }).Single();
             return result;
+        }
+
+        public void SetFundingTypeDeposits(int fundingTypeId, int depositId)
+        {
+            var deposit = this.Context.Deposit.Find(depositId);
+            var fundingType = this.Context.FundingType.Find(fundingTypeId);
+            var approvedPaymentStatus = this.Context.PaymentStatus.Single(s => s.Status == "Approved");
+            if (deposit == null || fundingType == null)
+            {
+                throw new ArgumentException();
+            }
+
+            var currentQuote =
+                approvedPaymentStatus
+                    .Deposit.Where(
+                        d => d.FundingTypeID == fundingTypeId && d.TimeStamp > new DateTime(2016, 12, 31) && d.TimeStamp < new DateTime(2017, 2, 1))
+                        .Sum(s => s.ExchangeRate * s.PaymentAmount);
+            var monthlyQuote = fundingType.MonthlyQuote;
+            if (currentQuote < monthlyQuote)
+            {
+                deposit.PaymentStatus = approvedPaymentStatus;
+                fundingType.QuoteActive = 0;
+                ((DbContext)this.Context).SaveChanges();
+            }
         }
     }
 }

@@ -2,9 +2,9 @@
 {
     using Data;
 
-    internal abstract class PerformableAction : IPerformableAction
+    internal abstract class PerformableAction<T> : IPerformableAction<T>
     {
-        public abstract void Perform();
+        public abstract T Perform();
 
         public IBillingContext DbContext { get; set; }
     }

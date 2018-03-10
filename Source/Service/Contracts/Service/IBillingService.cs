@@ -13,5 +13,8 @@
 
         [OperationContract]
         FundingTypeSupportedCurrenciesData GetFundingTypeSupportedCurrencies(int id);
+
+        [OperationContract]
+        void SetFundingTypeDeposits(int fundingTypeId, int depositId);
     }
 }

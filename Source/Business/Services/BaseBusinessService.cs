@@ -32,5 +32,31 @@
                     }
             }
         }
+
+        internal void  Perform(
+            IPerformableAction action,
+            bool transactional = true)
+        {
+            if (transactional)
+            {
+                using (IBillingContext context = BillingContext.Create())
+                {
+                    using (var transaction = TransactionUtils.CreateTransaction())
+                    {
+                        action.DbContext = context;
+                        action.Perform();
+                        transaction.Complete();
+                    }
+                }
+            }
+            else
+            {
+                using (IBillingContext context = BillingContext.Create())
+                {
+                    action.DbContext = context;
+                    action.Perform();
+                }
+            }
+        }
     }
 }

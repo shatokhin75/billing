@@ -29,5 +29,10 @@
         {
             return this.billingBusinessService.GetFundingTypeSupportedCurrencies(id).ToFundingTypeSupportedCurrenciesDataDto();
         }
+
+        public void SetFundingTypeDeposits(int fundingTypeId, int depositId)
+        {
+            this.billingBusinessService.SetFundingTypeDeposits(fundingTypeId, depositId);
+        }
     }
 }

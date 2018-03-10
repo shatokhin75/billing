@@ -20,5 +20,11 @@
             var action = new GetFundingTypeSupportedCurrenciesAction(id);
             return this.Perform(action, false);
         }
+
+        public void SetFundingTypeDeposits(int fundingTypeId, int depositId)
+        {
+            var action = new SetFundingTypeDepositsAction(fundingTypeId, depositId);
+            this.Perform(action);
+        }
     }
 }

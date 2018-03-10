@@ -32,5 +32,10 @@
         {
             return this.adapter.GetFundingTypeSupportedCurrencies(id);
         }
+
+        public void SetFundingTypeDeposits(int fundingTypeId, int depositId)
+        {
+            this.adapter.SetFundingTypeDeposits(fundingTypeId, depositId);
+        }
     }
 }

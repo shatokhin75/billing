@@ -53,9 +53,11 @@
   <ItemGroup>
     <Compile Include="Actions\GetFundingTypeSupportedCurrenciesAction.cs" />
     <Compile Include="Actions\PerformableAction.cs" />
+    <Compile Include="Actions\PerformableActionT.cs" />
     <Compile Include="Actions\GetAllSupportedFundingTypesAction.cs" />
     <Compile Include="Actions\IBaseAction.cs" />
     <Compile Include="Actions\IPerformableAction.cs" />
+    <Compile Include="Actions\SetFundingTypeDepositsAction.cs" />
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\BillingManager.cs" />
     <Compile Include="Services\BaseBusinessService.cs" />
