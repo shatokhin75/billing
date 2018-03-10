@@ -18,7 +18,7 @@
             config.MapHttpAttributeRoutes();
 
             config.EnableSwagger(
-                "api/swagger/docs/{apiVersion}",
+                "swagger/docs/{apiVersion}",
                 c =>
                 {
                     c.Schemes(null);

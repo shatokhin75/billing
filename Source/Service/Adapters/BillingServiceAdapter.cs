@@ -8,7 +8,7 @@
     using Service.Contracts.Data;
     using Service.Mappers;
 
-    internal sealed class BillingServiceAdapter
+    public sealed class BillingServiceAdapter
     {
         // <summary>
         /// The service.
